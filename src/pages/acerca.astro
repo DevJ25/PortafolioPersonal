@@ -1,0 +1,104 @@
+---
+import MainLayout from "../layout/MainLayout.astro";
+
+
+---
+
+<MainLayout  title="Acerca de mi" >
+
+<section class="w-full h-auto p-2 flex flex-col justify-center items-center  lg:flex-row gap-3  bg-[#0f3a47]  md:p-0 ">
+ <div  class="w-full h-auto flex  gap-6 p-3 lg:w-2/5  lg:gap-10  border-slate-950 justify-center items-center ">
+ <img class="w-auto h-64 sm:w-80 sm:h-80 lg:w-auto lg:h-92 object-cover  dark:shadow-gray-800  dark:border-gray-800  p-4 lg:p-5 " src="./image.png" alt="">
+</div>
+
+ <div class="w-full h-auto p-4 flex flex-col md:flex-row gap-3  bg-[#0f3a47]  lg:w-3/5 lg:h-auto lg:pr-0  lg:pt-10 ">
+   <article class="w-full h-auto flex flex-col gap-3 p-0 md:w-full lg:gap-6 lg:pt-3 ">
+    <div class="w-1/2 h-auto flex flex-col gap-3 bg-[#245d70]  lg:w-1/2 rounded-r-3xl">
+        <h1 class=" sm:text-3xl lg:text-4xl font-bold lg:text-gray-400 lg:p-2">Acerca De Mi</h1>
+    </div>
+    <div class="w-full h-auto flex  flex-col lg:flex-row gap-3  lg:w-full ">
+      <div class="flex flex-col gap-0.5">
+    <h1 class="lg:text-2xl lg:text-gray-400 font-light">¿Quien Soy Yo?</h1>
+    <p class="text-slate-600">
+        Soy estudiante de Ingeniería de Sistemas e Informática, apasionado por la tecnología y siempre en búsqueda de aprender nuevas herramientas y soluciones innovadoras. Me interesa desarrollar sistemas eficientes que aporten valor y resuelvan problemas de forma creativa.</p>
+    
+      </div>
+      <div class="flex flex-col gap-0.5">
+    <h1 class="lg:text-2xl lg:text-gray-400 font-light">Mi Enfoque</h1>
+    <p class="text-slate-600">
+ Busco siempre aprender nuevas herramientas y tendencias para crear soluciones eficientes y creativas que generen un impacto real. Mi objetivo es combinar mis conocimientos técnicos con una visión práctica para desarrollar proyectos que aporten valor y resuelvan problemas de manera efectiva.
+    </p>
+      </div>     
+    </div>      
+    <div class=" flex flex-col gap-2 text-left w-full p-4">
+    <h1 class="text-left text-gray-500 text-3xl">Informacion Personal</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:p-1">
+  <div class="flex flex-col md:flex-row md:items-center gap-2 p-2 border border-gray-500 rounded-lg  shadow-sm">
+    <span class="flex items-center gap-1 font-bold text-gray-500 flex-shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user text-blue-600"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
+      Nombre:
+    </span>
+    <span class="text-gray-400">Darwin Joel</span>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:items-center gap-2 p-2 border border-gray-500 rounded-lg  shadow-sm">
+    <span class="flex items-center gap-1 font-bold text-gray-500 flex-shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-school text-blue-600"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /></svg>
+      Carrera:
+    </span>
+    <span class="text-gray-400">Ingeniería de Sistemas e Informática</span>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:items-center gap-2 p-4 border border-gray-500 rounded-lg shadow-sm">
+    <span class="flex items-center gap-1 font-bold text-gray-500 flex-shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail text-blue-600"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
+      Email:
+    </span>
+    <span class="text-gray-400">darwinssantamaria@gmail.com</span>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:items-center gap-2 p-4 border border-gray-500 rounded-lg shadow-sm">
+    <span class="flex items-center gap-1 font-bold text-gray-500 flex-shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-label text-blue-600"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.52 7h-10.52a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h10.52a1 1 0 0 0 .78 -.375l3.7 -4.625l-3.7 -4.625a1 1 0 0 0 -.78 -.375" /></svg>
+      Nivel:
+    </span>
+    <span class="text-gray-400">Estudiante</span>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:items-center gap-2 p-2 border border-gray-500 rounded-lg  shadow-sm">
+    <span class="flex items-center gap-1 font-bold text-gray-500 flex-shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-heart text-blue-600"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h.5" /><path d="M18 22l3.35 -3.284a2.143 2 0 0 0 .005 -3.071a2.242 2 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2 0 0 0 -3.128 -.006a2.143 2 0 0 0 -.006 3.071l3.355 3.296z" /></svg>
+      Pasiones:
+    </span>
+    <span class="text-gray-400">Programación, Tecnología, Innovación, Redes, TI, Ciberseguridad</span>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:items-center gap-2 p-2 border border-gray-500 rounded-lg shadow-sm">
+    <span class="flex items-center gap-1 font-bold text-gray-500 flex-shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shield text-blue-600"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3" /></svg>
+      Habilidades:
+    </span>
+    <span class="text-gray-400">Resolución de problemas, análisis, creatividad, aprendizaje constante</span>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:items-center gap-2 p-2 border border-gray-500 rounded-lg shadow-sm">
+    <span class="flex items-center gap-1 font-bold text-gray-500 flex-shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-perspective text-blue-600"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.141 4.163l12 1.714a1 1 0 0 1 .859 .99v10.266a1 1 0 0 1 -.859 .99l-12 1.714a1 1 0 0 1 -1.141 -.99v-13.694a1 1 0 0 1 1.141 -.99z" /></svg>
+      Objetivos:
+    </span>
+    <span class="text-gray-400">Mejorar mi resolución de problemas, el trabajo en equipo y mi adaptación a nuevas tecnologías.</span>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:items-center gap-2 p-2 border border-gray-500 rounded-lg shadow-sm">
+    <span class="flex items-center gap-1 font-bold text-gray-500 flex-shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-layers-intersect-2 text-blue-600"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 4m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" /><path d="M4 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" /><path d="M9 15l6 -6" /></svg>
+      Intereses:
+    </span>
+    <span class="text-gray-400">Aprender y Explorar tendencias tecnológicas, crear proyectos prácticos</span>
+  </div>
+     </div>
+    </div>
+   </article> 
+ </div>
+</section>
+</MainLayout>

@@ -1,0 +1,136 @@
+---
+import NavProyects from "../components/NavProyects.astro";
+import MainLayout from "../layout/MainLayout.astro";
+
+const projects = [
+  {
+    id: 1,
+    title: "Clon de un Proyecto de restaurante",
+    description: "Dashboard administrativo para tienda online con análisis de ventas, gestión de inventario y reportes en tiempo real.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+    demoUrl: "https://demo.example.com",
+    codeUrl: "https://github.com/usuario/proyecto",
+    status: "completed",
+    category: "Web Apps"
+  },
+  {
+    id: 2,
+    title: "Task Management App",
+    description: "Aplicación de gestión de tareas con colaboración en tiempo real, notificaciones y sistema de prioridades.",
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=300&fit=crop",
+    tags: ["Next.js", "Prisma", "PostgreSQL", "Socket.io"],
+    demoUrl: "https://demo.example.com",
+    codeUrl: "https://github.com/usuario/proyecto",
+    status: "in-progress",
+    category: "Web Apps"
+  },
+  {
+    id: 3,
+    title: "Portfolio Website",
+    description: "Sitio web personal con diseño moderno, animaciones fluidas y optimizado para SEO.",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=300&fit=crop",
+    tags: ["Gatsby", "GSAP", "Styled Components"],
+    demoUrl: "https://demo.example.com",
+    codeUrl: "https://github.com/DevJ25/PortafolioPersonal",
+    status: "completed",
+    category: "Websites"
+  },
+  {
+    id: 6,
+    title: "Restaurant Landing",
+    description: "Landing page para restaurante con reservas online, menú interactivo y galería de imágenes.",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=300&fit=crop",
+    tags: ["Vue.js", "Nuxt.js", "Tailwind CSS", "Strapi"],
+    demoUrl: "https://demo.example.com",
+    codeUrl: "https://github.com/usuario/proyecto",
+    status: "completed",
+    category: "Websites"
+  }
+];
+
+// Filtrar solo proyectos web (puedes ajustar las categorías según necesites)
+const webProjects = projects.filter(project => 
+  project.category === "Web Apps" || project.category === "Websites"
+);
+---
+
+<MainLayout title="Webs">
+  <NavProyects />
+  
+  <main class="w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-[#0f3a47] ">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Mis Proyectos Web</h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Aquí puedes ver todos los sitios web y aplicaciones que he desarrollado.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {webProjects.map(project => (
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <img 
+              src={project.image} 
+              alt={project.title} 
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h2 class="text-xl font-bold text-gray-800">{project.title}</h2>
+                <span class={`px-3 py-1 text-xs font-semibold rounded-full ${
+                  project.status === 'completed' ? 'bg-green-100 text-green-800' :
+                  project.status === 'in-progress' ? 'bg-yellow-100 text-yellow-800' :
+                  'bg-blue-100 text-blue-800'
+                }`}>
+                  {project.status === 'completed' ? 'Completado' : 
+                   project.status === 'in-progress' ? 'En progreso' : 'Concepto'}
+                </span>
+              </div>
+              
+              <p class="text-gray-600 mb-4">{project.description}</p>
+              
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.tags.map(tag => (
+                  <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              
+              <div class="flex justify-between mt-6">
+                <a 
+                  href={project.demoUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                >
+                  Ver Demo
+                </a>
+                <a 
+                  href={project.codeUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors"
+                >
+                  Código
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+</MainLayout>
+
+<style>
+  /* Animación sutil al hacer hover */
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  .hover-scale:hover {
+    transform: translateY(-5px);
+  }
+</style>

@@ -1,0 +1,159 @@
+---
+import NavProyects from "../components/NavProyects.astro";
+import MainLayout from "../layout/MainLayout.astro";
+
+const projects = [
+  {
+    id: 1,
+    title: "E-commerce Dashboard",
+    description: "Dashboard administrativo para tienda online con análisis de ventas, gestión de inventario y reportes en tiempo real.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+    demoUrl: "https://demo.example.com",
+    codeUrl: "https://github.com/usuario/proyecto",
+    status: "completed",
+    category: "Web Apps",
+    completionDate: "2023-05-15"
+  },
+  {
+    id: 2,
+    title: "Task Management App",
+    description: "Aplicación de gestión de tareas con colaboración en tiempo real, notificaciones y sistema de prioridades.",
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=300&fit=crop",
+    tags: ["Next.js", "Prisma", "PostgreSQL", "Socket.io"],
+    demoUrl: "https://demo.example.com",
+    codeUrl: "https://github.com/usuario/proyecto",
+    status: "completed",
+    category: "Web Apps",
+    completionDate: "2023-08-22"
+  },
+  {
+    id: 3,
+    title: "Portfolio Website",
+    description: "Sitio web personal con diseño moderno, animaciones fluidas y optimizado para SEO.",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=300&fit=crop",
+    tags: ["Gatsby", "GSAP", "Styled Components"],
+    demoUrl: "https://demo.example.com",
+    codeUrl: "https://github.com/usuario/proyecto",
+    status: "completed",
+    category: "Websites",
+    completionDate: "2023-03-10"
+  },
+  {
+    id: 4,
+    title: "Weather App",
+    description: "Aplicación móvil para consultar el clima con pronóstico extendido y notificaciones personalizadas.",
+    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=300&fit=crop",
+    tags: ["React Native", "Redux", "OpenWeather API"],
+    demoUrl: "https://demo.example.com",
+    codeUrl: "https://github.com/usuario/proyecto",
+    status: "completed",
+    category: "Mobile Apps",
+    completionDate: "2023-07-05"
+  }
+];
+
+// Filtrar solo apps web completas
+const completedWebApps = projects.filter(project => 
+  (project.category === "Web Apps" || project.category === "Websites") && 
+  project.status === "completed"
+).sort((a, b) => {
+  const dateA = new Date(a.completionDate).getTime();
+  const dateB = new Date(b.completionDate).getTime();
+  return dateB - dateA;
+}); // Ordenar por fecha más reciente
+---
+
+<MainLayout title="Apps Web Completas">
+  <NavProyects />
+  
+  <main class="w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b bg-[#0f3a47] ">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Mis Aplicaciones Web Completas</h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Colección de proyectos web finalizados con éxito, listos para explorar.
+        </p>
+      </div>
+
+      {completedWebApps.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {completedWebApps.map(project => (
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+              <div class="relative">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  class="w-full h-48 object-cover"
+                  loading="lazy"
+                />
+                <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  Completado
+                </span>
+              </div>
+              
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-3">
+                  <h2 class="text-xl font-bold text-gray-800">{project.title}</h2>
+                  <span class="text-xs text-gray-500">
+                    {new Date(project.completionDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'short' })}
+                  </span>
+                </div>
+                
+                <p class="text-gray-600 mb-4">{project.description}</p>
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map(tag => (
+                    <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full flex items-center">
+                         {tag.startsWith('http') ? (
+                          <img src={tag} alt="tech icon" class="w-4 h-4 mr-1" />
+                          ) : null}
+                          {tag.replace(/^https?:\/\/[^/]+\//, '')}
+                     </span>
+                   ))}
+                 </div>
+                
+                <div class="flex space-x-3">
+                  <a 
+                    href={project.demoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-medium"
+                  >
+                    Ver Demo
+                  </a>
+                  <a 
+                    href={project.codeUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="flex-1 text-center px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors font-medium"
+                  >
+                    Código
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+         </div>
+      ) : (
+        <div class="text-center py-12">
+          <p class="text-gray-500 text-lg">Actualmente no hay aplicaciones web completadas para mostrar.</p>
+        </div>
+      )}
+     </div>
+  </main>
+</MainLayout>
+
+<style>
+  /* Efecto de gradiente sutil en las cards */
+  .card-gradient::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+  }
+</style>
