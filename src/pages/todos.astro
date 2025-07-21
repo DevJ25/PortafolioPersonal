@@ -10,10 +10,11 @@ const projects = [
     description: "Dashboard administrativo para tienda de comida online con análisis de ventas, gestión de inventario y reportes en tiempo real.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop",
     tags: ["Next.js", "Mysql", "Tailwind CSS", "Java", "Spring", "Spring Security", "Hibernate"],
-    demoUrl: "https://demo.example.com",
+    demoUrl: "http://google.com",
     codeUrl: "https://github.com/1832Code/CateringAPP",
     status: "completed" as const,
-    category: "Web Apps"
+    category: "Web Apps",
+    featured: true
   },
   {
     id: 2,
@@ -22,9 +23,10 @@ const projects = [
     image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=300&fit=crop",
     tags: ["React", "Tailwind", "React-Icons"],
     demoUrl: "https://gregarious-lebkuchen-8191f1.netlify.app/",
-    codeUrl: "https://github.com/usuario/proyecto",
+    codeUrl: "https://github.com/DevJ25",
     status: "in-progress" as const,
-    category: "Web Apps"
+    category: "Web Apps",
+    featured: true
   },
   {
     id: 3,
@@ -32,15 +34,15 @@ const projects = [
     description: "Sitio web personal con diseño moderno, animaciones fluidas y optimizado para SEO.",
     image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=300&fit=crop",
     tags: ["Astro", "Tailwind"],
-    demoUrl: "https://demo.example.com",
-    codeUrl: "https://github.com/usuario/proyecto",
+    demoUrl: "http://google.com",
+    codeUrl: "https://github.com/DevJ25",
     status: "completed" as const,
     category: "Websites"
   },
   {
     id: 4,
     title: "Juego de Ajedrez",
-    description: "Aplicación de escritotio de juego de 2 personas e incluso jugar con el ordenador mismo.",
+    description: "Juego de ajedrez de escritorio para dos jugadores o contra la computadora, con interfaz intuitiva.",
     image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=300&fit=crop",
     tags: ["Java", "JavaFX"],
     demoUrl: "https://google.com",
@@ -51,7 +53,7 @@ const projects = [
   {
     id: 5,
     title: "Sistema Para Restaurante",
-    description: "Interfaz de chat con inteligencia artificial, soporte para múltiples modelos y historial de conversaciones.",
+    description: "Sistema integral para la gestión de restaurantes, incluyendo control de pedidos, reservas y administración de menús.",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=300&fit=crop",
     tags: ["React", "OpenAI API", "WebSocket", "Markdown"],
     demoUrl: "https://google.com",
@@ -62,7 +64,7 @@ const projects = [
   {
     id: 6,
     title: "Helium Music",
-    description: "Landing page para restaurante con reservas online, menú interactivo y galería de imágenes.",
+    description: "Plataforma web para descubrir, escuchar y compartir música, con listas de reproducción personalizadas y recomendaciones inteligentes.",
     image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=300&fit=crop",
     tags: ["Vue.js", "Nuxt.js", "Tailwind CSS", "Strapi"],
     demoUrl: "https://google.com",
@@ -72,6 +74,8 @@ const projects = [
   }
 ];
 
+const featuredProjects = projects.filter(p => p.featured);
+const otherProjects = projects.filter(p => !p.featured);
 
 
 ---
@@ -84,8 +88,21 @@ const projects = [
  <div title="Mis Proyectos">
   <section class="py-12 px-4 max-w-6xl mx-auto">
     
+    {featuredProjects.length > 0 && (
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-amber-400 mb-4">Proyectos Destacados</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredProjects.map(project => (
+            <div class="border-4 border-amber-400 rounded-xl">
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+    <h2 class="text-2xl font-bold text-emerald-300 mb-4">Todos los Proyectos</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projects.map(project => (
+      {otherProjects.map(project => (
         <ProjectCard project={project} />
       ))}
     </div>

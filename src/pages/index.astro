@@ -50,10 +50,26 @@ const textToCopy = `RedC24990@gmail.com`;
 
 
 <MainLayout title={name}>
+  <div id="welcome-message" class="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#0f3a47] via-[#174e6e] to-[#0f3a47] z-50 transition-opacity duration-700 opacity-100">
+    <div class="flex flex-col items-center gap-6 animate-welcome-in">
+      <div class="w-24 h-24 rounded-full bg-white/10 border-4 border-white/30 flex items-center justify-center shadow-xl mb-2 animate-float">
+        <img src="./image.png" alt="Avatar" class="w-20 h-20 rounded-full object-cover shadow-lg" />
+      </div>
+      <h2 class="text-3xl md:text-4xl text-white font-extrabold text-center drop-shadow-lg tracking-wide animate-fade-in">
+        ¡Bienvenido a mi <span class="text-amber-400">portafolio web personal</span>!
+      </h2>
+      <p class="text-lg md:text-xl text-slate-200 font-light text-center max-w-xl animate-fade-in delay-200">
+        Descubre mis proyectos, habilidades y experiencia en tecnología.<br/>¡Gracias por visitar!
+      </p>
+      <div class="w-16 h-1 bg-amber-400 rounded-full animate-fade-in delay-300"></div>
+    </div>
+  </div>
+  <div id="main-content" class="hidden">
+
 <div class="w-full h-auto p-2 flex  flex-col md:justify-center md:items-center   lg:flex-row gap-3  bg-[#0f3a47]  md:p-4  lg:h-[85vh]">
      <main class="w-full h-auto flex flex-col gap-6 p-3 lg:w-1/2  lg:gap-10">
       <div class="w-full h-auto flex flex-col gap-3 ">
-        <h1 class="text-4xl font-bold   lg:text-gray-900">Hola, Soy Darwin Joel </h1>
+        <h1 class="text-4xl font-bold   lg:text-gray-300">Hola, Soy Darwin Joel </h1>
         <article class="scene">
             <div class="actor">
               <div class="actor__prefix"></div>
@@ -288,6 +304,7 @@ const textToCopy = `RedC24990@gmail.com`;
   }
 </style>
 </section>
+</div>
 </MainLayout>
 
 
@@ -320,7 +337,7 @@ $spacing-large: $spacing * 3;
 .actor {
   font-size:20px; // Reducido ligeramente para textos más largos
   display: flex;
-  color:gray;
+  color:write;
   margin-bottom: $spacing;
   align-items: flex-start; // Alinea el prefijo y el contenido arriba
 
@@ -346,6 +363,27 @@ $spacing-large: $spacing * 3;
   to { opacity: 1; }
 }
 
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes welcome-in {
+  from { transform: translateY(40px) scale(0.98); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+.animate-fade-in {
+  animation: fade-in 1.2s cubic-bezier(0.4,0,0.2,1) both;
+}
+.animate-welcome-in {
+  animation: welcome-in 1s cubic-bezier(0.4,0,0.2,1) both;
+}
+.animate-float {
+  animation: float 2.5s ease-in-out infinite alternate;
+}
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12px); }
+}
 .actor__content--typing::after {
   content: '|';
   animation: blink 500ms infinite;
@@ -433,3 +471,20 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+  
+    // Mensaje de bienvenida
+    const welcome = document.getElementById('welcome-message');
+    const main = document.getElementById('main-content');
+    setTimeout(() => {
+      if (welcome) {
+        welcome.style.opacity = '0';
+        setTimeout(() => { welcome.style.display = 'none'; }, 700); // coincide con transition
+      }
+      if (main) main.classList.remove('hidden');
+    }, 2500); // 2.5 segundos
+  
+  });
+  </script>
